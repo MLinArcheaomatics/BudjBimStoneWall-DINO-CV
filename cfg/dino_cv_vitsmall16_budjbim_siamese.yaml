@@ -1,0 +1,28 @@
+# dataset
+root: 'data/budjbim_area'
+img_size: 256
+img_norm: True
+
+# train config
+epoch: 100
+patience: 100
+batch: 64
+num_workers: 8
+lr: 0.00005
+w_decay: 0.05
+optim: 'adamw'
+device: 'cuda'
+weight_mode: 'load'
+
+# model
+arch: 'vit_small'
+mhs_encoder: './save/pretrained_weights/dino_cv/vitsmall16_mhs_budjbim_pretrained/checkpoint.pth'
+vat_encoder: './save/pretrained_weights/dino_cv/vitsmall16_vat_budjbim_pretrained/checkpoint.pth'
+patch_size: 16
+feature_indices: 
+- 1
+- 4
+- 7
+- 10
+feature_channels: null
+path: 'save/dino_cv_vitsmall16_budjbim_siamese/'

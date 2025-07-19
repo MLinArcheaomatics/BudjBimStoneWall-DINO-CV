@@ -1,0 +1,13 @@
+.vscode
+.DS_Store
+__pycache__
+*/__pycache__
+output
+save
+data
+!data/data_utils.py
+!data/dataset.py
+log
+*_lightning.py
+*_lightning.sh
+pretrained_weights

@@ -1,0 +1,34 @@
+# dataset
+root: 'data/budjbim_area'
+img_size: 256
+img_norm: True
+view: 'mhs'
+
+# train config
+epoch: 100
+patience: 100
+batch: 64
+num_workers: 8
+lr: 0.01
+w_decay: 0.0001
+optim: 'sgd'
+device: 'cuda'
+weight_mode: 'load'
+
+# model
+arch: 'wide_resnet50_2'
+encoder: './save/pretrained_weights/dino_cv/wrn50_mhs_budjbim_pretrained/checkpoint0050.pth'
+patch_size: 16
+feature_indices: 
+- 0
+- 4
+- 5
+- 6
+- 7
+feature_channels:
+- 64
+- 256
+- 512
+- 1024
+- 2048
+path: 'save/dino_cv_wrn50_budjbim_mhs/'
