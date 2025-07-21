@@ -44,7 +44,7 @@ You can download the **BudjBimArea** dataset, which includes aerial imagery, DEM
 
 ### Training DINO-CV
 
-Run the following scripts to pre-train model backbones using DINO-CV. You must change `--data_path` and `--output_dir` as needed.
+Run the following command lines to pre-train model backbones using DINO-CV. You must change `--data_path` and `--output_dir` as needed. For pre-training WideResNet50 and ViT-small backbones with DINO-CV, please refer to the script `main_dino_cv.sh`.
 
 #### Pre-train ResNet-50 on MHS
 
@@ -71,58 +71,6 @@ Run the following scripts to pre-train model backbones using DINO-CV. You must c
  --pretrained_model_ckpt ./save/pretrained_weights/dino_resnet50_pretrain.pth \
  --output_dir ./save/pretrained_weights/dino_cv/rn50_mhs_budjbim_pretrained \
  --num_workers 8
-```
-
-#### Pre-train WideResNet-50-2 on MHS
-
-```bash
- python3 main_dino_cv_run_with_submitit.py \
- --nodes 1 \
- --ngpus 2 \
- --mem_gb 32 \
- --partition gpu-a100 \
- --time 2-0:0:0 \
- --job_name main_dino_cv \
- --arch wide_resnet50_2 \
- --use_bn_in_head True \
- --use_fp16 False \
- --lr 0.001 \
- --optimizer sgd \
- --global_crops_scale 0.15 1.0 \
- --min_scale_crops 0.05 \
- --max_scale_crops 0.15 \
- --data_view mhs \
- --data_path ./data/budjbim_landscape \
- --cross_view_training \
- --pretrained \
- --pretrained_model_ckpt ./save/pretrained_weights/dino_mc_wide_resnet50.pth \
- --output_dir ./save/pretrained_weights/dino_cv/wrn50_mhs_budjbim_pretrained \
- --num_workers 8
-```
-
-#### Pre-train ViT-Small-16 on MHS
-
-```bash
- python3 main_dino_cv_run_with_submitit.py \
- --nodes 1 \
- --ngpus 2 \
- --mem_gb 32 \
- --partition gpu-a100 \
- --time 2-0:0:0 \
- --job_name main_dino_cv \
- --arch vit_small \
- --patch_size 16 \
- --norm_last_layer False \
- --use_bn_in_head False \
- --use_fp16 False \
- --optimizer adamw \
- --data_view mhs \
- --data_path ./data/budjbim_landscape \
- --cross_view_training \
- --pretrained \
- --pretrained_model_ckpt ./save/pretrained_weights/dino_deitsmall16_pretrain.pth \
- --output_dir ./save/pretrained_weights/dino_cv/vitsmall16_mhs_budjbim_pretrained \
- --num_workers 8 
 ```
 
 You can download the pretrained backbones of **ResNet50**, **WideResNet50**, and **ViT-Small-16** trained with DINO-CV on data view of MHS and VAT from the following [Download pretrained backbones](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=GtgfZ4mqUxVNU3QsnIzP1128304701&browser=true&filename=pretrained_weights.zip).
@@ -173,9 +121,9 @@ python3 main_eval.py --cfg cfg/dino_cv_vitsmall16_budjbim_siamese.yaml --path sa
 
 | Method   | Backbone        | Params | F1 Score | mIoU   | Download               |
 |----------|----------------|--------|----------|--------|-------------------------|
-| DINO-CV  | ResNet-50      | 46M    | 81.2%    | 68.3%  | [pre-trained ckpt](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=bAswFj6QlfuFQsZstDts1128304703&browser=true&filename=ft_rn50.zip)    |
-| DINO-CV  | ViT-S/16       | 42M    | 80.1%    | 66.8%  | [pre-trained ckpt](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=xluIaHuUHRL3F8xaMDbZ1128304707&browser=true&filename=ft_vitsmall16.zip)  |
-| DINO-CV  | WideResNet-50-2| 138M   | 81.4%    | 68.6%  | [pre-trained ckpt](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=xYmo5kq3w93cPdFPgBL51128304705&browser=true&filename=ft_wrn50.zip)    |
+| DINO-CV  | ResNet-50      | 46M    | 81.2%    | 68.3%  | [model ckpt](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=bAswFj6QlfuFQsZstDts1128304703&browser=true&filename=ft_rn50.zip)    |
+| DINO-CV  | ViT-S/16       | 42M    | 80.1%    | 66.8%  | [model ckpt](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=xluIaHuUHRL3F8xaMDbZ1128304707&browser=true&filename=ft_vitsmall16.zip)  |
+| DINO-CV  | WideResNet-50-2| 138M   | 81.4%    | 68.6%  | [model ckpt](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=xYmo5kq3w93cPdFPgBL51128304705&browser=true&filename=ft_wrn50.zip)    |
 
 ![ResNet50 Results](figs/rn50_preds.png)  
 *Qualitative results of the ResNet50 backbone fine-tuned via DINO-CV, compared to other methods.*
