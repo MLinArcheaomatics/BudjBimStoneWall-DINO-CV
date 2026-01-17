@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Dry-stone walls hold significant heritage and environmental value. Mapping and maintaining these structures is essential for preserving ecosystems and supporting wildfire control during dry seasons in Australia. However, a substantial portion of stone walls located in wild landscapes remain unidentified and unregistered due to their inaccessibility and the high cost of mapping. Deep learning-based segmentation models offer a scalable solution for automated mapping of dry-stone walls, but two challenges remain, including (1) visual occlusion of low-lying stone walls by dense vegetation and (2) limited availability of labeled data for training supervised segmentation models. In this study, we propose a segmentation approach for the automatic and accurate mapping of low-lying dry-stone walls using high-resolution digital elevation models (DEMs). The use of Airborne LiDAR-derived DEMs help overcome the visual occlusion problem caused by dense vegetation and canopy cover, by capturing underlying terrain structures that are invisible in traditional optical imagery. Our approach proposes DINO-CV, a self-supervised cross-view pre-training strategy based on knowledge distillation, to address the challenge of limited labeled data. DINO-CV learns invariant visual and structural features across multiple high-resolution DEM derivatives, enabling accurate stone wall mapping on various computer vision backbones (i.e., ResNet, Wide ResNet, and Vision Transformers (ViTs)). Applied to the UNESCO World Heritage cultural landscape of Budj Bim, Victoria, our method successfully identifies one of Australia’s densest collections of colonial dry-stone walls beyond Indigenous cultural heritage. The proposed method achieves a mean Intersection over Union (mIoU) of \textit{68.6}\% between predicted and ground-truth stone wall locations in the test areas, and maintains robust performance of \textit{63.8}\% mIoU when fine-tuned with limited labeled data (10\%) using self-supervised vision backbones pretrained on the DEM derivatives of Budj Bim landscape. These results demonstrate the potential of applying self-supervised learning on high-resolution DEM derivatives for automated mapping of dry-stone walls, particularly in densely vegetated environments and heritage landscapes with limited labeled data.
+Historic dry-stone walls hold significant cultural and environmental importance, serving as historical markers and contributing to ecosystem preservation and wildfire management during dry seasons in Australia. However, many of these stone structures in remote or vegetated landscapes remain undocumented due to limited accessibility and the high cost of manual mapping. Deep learning–based segmentation offers a scalable approach for automated mapping of such features, but challenges remain: 1.the visual occlusion of low-lying dry-stone walls by dense vegetation and 2.the scarcity of labeled training data. This study presents **DINO-CV**, a self-supervised cross-view pre-training framework based on knowledge distillation, designed for accurate and data-efficient mapping of dry-stone walls using **Digital Elevation Models (DEMs)** derived from high-resolution airborne LiDAR. By learning invariant geometric and geomorphic features across DEM-derived views, (i.e., Multi-directional Hillshade and Visualization for Archaeological Topography), DINO-CV addresses the occlusion by vegetation and data scarcity challenges. Applied to the **Budj Bim Cultural Landscape** at Victoria, Australia, a UNESCO World Heritage site, the approach achieves a mean Intersection over Union (*mIoU*) of *68.6*% on test areas and maintains *63.8*% mIoU when fine-tuned with only 10% labeled data. These results demonstrate the potential of self-supervised learning on high-resolution DEM derivatives for large-scale, automated mapping of cultural heritage features in complex and vegetated environments. Beyond archaeology, this approach offers a scalable solution for environmental monitoring and heritage preservation across inaccessible or environmentally sensitive regions.
 
 ## Dataset(s)
 
@@ -133,13 +133,12 @@ python3 main_eval.py --cfg cfg/dino_cv_vitsmall16_budjbim_siamese.yaml --path sa
 If you find this repository useful, please consider giving a star :star: and citation:
 
 ```text
-@article{huang2025selfsupervised,
-  title     = {Self-supervised Pre-training for Mapping of Archaeological Stone Wall in Historic Landscapes Using High-Resolution DEM Derivatives},
-  author    = {Huang, Zexian and Islam, Mashnoon and Armstrong, Brian and Khoshelham, Kourosh and Tomko, Martin},
-  journal   = {To appear},
-  year      = {2025},
-  publisher = {The University of Melbourne},
-  note      = {Manuscript in preparation},
-  url       = {https://github.com/MLinArcheaomatics/BudjBimStoneWallSeg-SSL}
+@article{huang2026mapping,
+  title={Mapping hidden heritage: Self-supervised pre-training on high-resolution LiDAR DEM derivatives for archaeological stone wall detection},
+  author={Huang, Zexian and Islam, Mashnoon and Armstrong, Brian and Bell, Billy and Khoshelham, Kourosh and Tomko, Martin},
+  journal={Science of Remote Sensing},
+  pages={100372},
+  year={2026},
+  publisher={Elsevier}
 }
 ```
