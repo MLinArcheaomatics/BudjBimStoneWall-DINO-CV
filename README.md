@@ -16,7 +16,7 @@ We use two datasets derived from the Budj Bim Cultural Landscape in Victoria, Au
 | Coverage Area       | 301&nbsp;km<sup>2</sup>     | 25&nbsp;km<sup>2</sup>               |
 | Location            | Budj Bim Cultural Landscape, VIC | Northern Budj Bim region      |
 | Data Views          | MHS, VAT             | MHS, VAT, binary wall annotations     |
-| DEM Resolution      | 0.5&nbsp;m           | 0.5&nbsp;m                            |
+| DEM Resolution      | 10&nbsp;cm           | 10&nbsp;cm                            |
 | Tile Size           | 400&nbsp;&times;&nbsp;400 px (resized to 256&nbsp;&times;&nbsp;256) | 400&nbsp;&times;&nbsp;400 px (resized to 256&nbsp;&times;&nbsp;256) |
 | Number of Tiles     | 188,006              | 7,102                                 |
 | Label Availability  | Unlabeled            | Manual wall annotations               |
