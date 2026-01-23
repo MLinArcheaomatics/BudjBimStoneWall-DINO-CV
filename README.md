@@ -128,6 +128,16 @@ python3 main_eval.py --cfg cfg/dino_cv_vitsmall16_budjbim_siamese.yaml --path sa
 ![ResNet50 Results](figs/rn50_preds.png)  
 *Qualitative results of the ResNet50 backbone fine-tuned via DINO-CV, compared to other methods.*
 
+## Usage & Ethics
+*This repository contains culturally sensitive information. The data and models are available for academic research and educational purposes only. Commercial use is strictly prohibited.*
+
+By downloading or using any part of this project, you agree to the following conditions:
+* **Research Use Only:** You may use this material solely for academic research, teaching, or non-profit educational purposes.
+* **No Commercial Use:** You are strictly prohibited from using this code, data, or model for any commercial purpose. This includes, but is not limited to:
+    * Training proprietary models for commercial products.
+    * Using the dataset to enhance commercial services.
+    * Selling or licensing the data or derived works.
+ 
 ## Citation
 
 If you find this repository useful, please consider giving a star :star: and citation:
