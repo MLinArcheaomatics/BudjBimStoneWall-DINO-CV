@@ -131,7 +131,7 @@ python3 main_eval.py --cfg cfg/dino_cv_vitsmall16_budjbim_siamese.yaml --path sa
 ## Usage & Ethics
 *This repository contains culturally sensitive information. The data and models are available for academic research and educational purposes only. Commercial use is strictly prohibited.*
 
-By downloading or using any part of this project, you agree to the following conditions:
+By downloading or using any part of this project, you agree to the following conditions (CC BY-NC 4.0):
 * **Research Use Only:** You may use this material solely for academic research, teaching, or non-profit educational purposes.
 * **No Commercial Use:** You are strictly prohibited from using this code, data, or model for any commercial purpose. This includes, but is not limited to:
     * Training proprietary models for commercial products.
